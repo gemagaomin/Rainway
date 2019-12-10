@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1296DB</color>
+    <color name="greet">#76FF03</color>
+    <color name="colorPrimaryDark">#FAFAFA</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="errorAccent">#b71c1c</color>
+    <color name="textColor">#9E9E9E</color>
+    <color name="backgroundColor">#E0E0E0</color>
+    <color name="btnBorderColor" id="lineColor">#BDBDBD</color>
+    <color name="lightColor">#F4511E</color>
+    <color name="bgSColor">#757575</color>
+    <color name="bgCColor">#9E9E9E</color>
+    <color name="bfEColor">#BDBDBD</color>
+    <color name="itemLinearBackgroundColor">#FAFAFA</color>
+    <color name="mainTextColor">#7F7E7E</color>
+    <color name="colorText">#212121</color>
+    <color name="whiteBackgroundColor">#FFFFFF</color>
+    <color name="black_translucent_overlay">#E6000000</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="circleOut">#E0E0E0</color>
+    <color name="circleInner">#FAFAFA</color>
+    <color name="circleProgress">#76FF03</color>
+    <color name="lightColor1">#9FF4511E</color>
+    <color name="titleColor">#FFFFFF</color>
+    <color name="circleTransparent">#4D01579B</color>
+</resources>

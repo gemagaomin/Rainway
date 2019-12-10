@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.soft.railway.inspection">
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 麦克风 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/> -->
+    <!-- 不是SDK需要的权限，是示例中的后台唤醒定位需要的权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 如果设置了target >= 28 如果需要启动后台定位则必须声明这个权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于提高GPS定位速度 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+    <application
+        android:name=".utils.MyApplication"
+        android:allowBackup="true"
+        android:exported="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activities.ShowMp3Activity"
+            android:label="@string/title_activity_show_mp3"
+            android:theme="@style/dialog_style_close"></activity>
+        <activity
+            android:name=".activities.SearchPointActivity"
+            android:label="@string/title_activity_search_point"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.SetTrainInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.KeyPersonDetailActivity"
+            android:label="@string/title_activity_key_person_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.EndVerificationZXActivity"
+            android:label="@string/title_activity_end_verification_zx"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.WorkExamineEditZXActivity"
+            android:label="@string/title_activity_work_examine_edit_zx"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.EndVerificationSmallActivity"
+            android:label="@string/title_activity_end_verification_small"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.WorkExamineEditSmallActivity"
+            android:label="@string/title_activity_work_examine_edit_small"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.SelectKeyPersonActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.KeyPersonSettingActivity"
+            android:label="@string/title_activity_key_person_setting"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.PointCardDetailActivity"
+            android:label="@string/title_activity_point_card_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.SearchDriverActivity"
+            android:label="@string/title_activity_search_driver"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.SearchAreaActivity"
+            android:label="@string/title_activity_search_area"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.ShowVideoActivity"
+            android:label="@string/title_activity_show_video"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.ErrorTipsActivity"
+            android:label="@string/title_activity_error_tips"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.ShowPhotoVideoActivity"
+            android:label="@string/title_activity_show_photo_video"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.WelcomeActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.RecordActivity"
+            android:label="@string/title_activity_recorder"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <service android:name="com.amap.api.location.APSService" />
+        <service
+            android:name=".services.StepService"
+            android:process=":remote" />
+        <service
+            android:name=".services.StepTempService"
+            android:process=":remote" />
+        <service
+            android:name=".services.FileService"
+            android:process=":remote" />
+        <service
+            android:name=".services.FileTempService"
+            android:process=":remote" />
+
+        <activity
+            android:name=".activities.PasswordActivity"
+            android:label="@string/title_activity_password"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.EndVerificationXCActivity"
+            android:label="@string/title_activity_end_verification_xc"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.EndVerificationTCActivity"
+            android:label="@string/title_activity_end_verification"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.DialogPeopleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.PointEditActivity"
+            android:label="@string/title_activity_point_edit"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.RunningWorkActivity"
+            android:label="@string/title_activity_running_work"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.StartWorkActivity"
+            android:label="@string/title_activity_start_work"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.SearchLineStationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.WorkExamineEditXCActivity"
+            android:label="@string/title_activity_work_detail_edit_examine"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.WorkExamineEditTCActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.PointActivity"
+            android:label="@string/title_activity_point"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.WorkDetailFinishActivity"
+            android:label="@string/title_activity_work_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.VersionUpdateActivity"
+            android:theme="@style/dialog_style" />
+        <activity
+            android:name=".activities.VideoActivity"
+            android:label="@string/title_activity_video"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.ShowPhotoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.Camera2Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.soft.railway.inspection.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="64efa3e6e3c654af0414d686a2ae5a72" />
+    </application>
+
+</manifest>
